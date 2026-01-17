@@ -22,7 +22,7 @@ public class InfoController {
     public String editar(Model model) {
         Info miInfo = infoService.buscarPorId(1L);
         model.addAttribute("info", miInfo);
-        return "info-form";
+        return "admin/info-form";
     }
 
     // 2. Procesar el guardado de los datos
