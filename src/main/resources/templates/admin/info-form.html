@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Información Personal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="bg-light">
+
+<div th:replace="~{fragments/header :: header}"></div>
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title mb-0">Editar Perfil Profesional</h3>
+                </div>
+                <div class="card-body p-4">
+                    <form th:action="@{/admin/info/guardar}" th:object="${info}" method="post">
+
+                        <input type="hidden" th:field="*{id}">
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label font-weight-bold">Nombre Completo</label>
+                                <input type="text" th:field="*{nombre}" class="form-control" placeholder="Ej: Paula Morales" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Correo Electrónico</label>
+                                <input type="email" th:field="*{email}" class="form-control" placeholder="nombre@ejemplo.com">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Breve Biografía / Descripción Profesional</label>
+                            <textarea th:field="*{descripcion}" class="form-control" rows="4" placeholder="Cuéntanos sobre tu perfil profesional..."></textarea>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Teléfono de Contacto</label>
+                                <input type="text" th:field="*{telefono}" class="form-control" placeholder="Ej: 682376794">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">URL de Foto de Perfil (Local o remota)</label>
+                                <input type="text" th:field="*{foto_url}" class="form-control" placeholder="/images/perfil.jpg">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">URL LinkedIn</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fab fa-linkedin"></i></span>
+                                <input type="text" th:field="*{linkedin}" class="form-control" placeholder="https://linkedin.com/in/tuperfil">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">URL GitHub</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fab fa-github"></i></span>
+                                <input type="text" th:field="*{github}" class="form-control" placeholder="https://github.com/tuusuario">
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                            <a th:href="@{/admin/dashboard}" class="btn btn-secondary me-md-2">Cancelar</a>
+                            <button type="submit" class="btn btn-success">Actualizar Perfil</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

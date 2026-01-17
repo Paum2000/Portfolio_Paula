@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Tecnologías</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="bg-light">
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow border-0">
+                <div class="card-header bg-warning py-3">
+                    <h4 class="mb-0 text-dark text-center">Registrar Tecnología</h4>
+                </div>
+                <div class="card-body p-4">
+                    <form th:action="@{/admin/lenguajes/guardar}" th:object="${lenguaje}" method="post">
+                        <input type="hidden" th:field="*{id}">
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Nombre de la Tecnología</label>
+                            <input type="text" th:field="*{nombre}" class="form-control"
+                                   placeholder="Ej: Java, Spring Boot, React..." required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Ruta del Icono</label>
+                            <input type="text" th:field="*{icono_url}" class="form-control"
+                                   placeholder="/images/icons/logo.png">
+                            <div class="form-text">Puedes usar rutas locales o URLs externas.</div>
+                        </div>
+
+                        <div class="d-flex justify-content-end gap-2 mt-4">
+                            <a th:href="@{/admin/lenguajes}" class="btn btn-outline-secondary">Cancelar</a>
+                            <button type="submit" class="btn btn-warning px-4">Guardar Lenguaje</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

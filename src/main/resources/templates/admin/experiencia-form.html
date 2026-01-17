@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de Experiencia</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-header bg-dark text-white">
+      <h3>Gestionar Experiencia Laboral</h3>
+    </div>
+    <div class="card-body">
+      <form th:action="@{/admin/experiencia/guardar}" th:object="${experiencia}" method="post">
+        <input type="hidden" th:field="*{id}">
+
+        <div class="mb-3">
+          <label class="form-label">Puesto</label>
+          <input type="text" th:field="*{puesto}" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Empresa</label>
+          <input type="text" th:field="*{empresa}" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Descripción</label>
+          <textarea th:field="*{descripcion}" class="form-control" rows="3"></textarea>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Fecha Inicio</label>
+            <input type="date" th:field="*{fecha_inicio}" class="form-control" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Fecha Fin</label>
+            <input type="date" th:field="*{fecha_fin}" class="form-control">
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <a th:href="@{/admin/experiencia}" class="btn btn-secondary">Volver</a>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>
