@@ -1,7 +1,8 @@
 package org.example.portfolio_paula.controller;
 
-import org.example.portfolio.model.Experiencia;
-import org.example.portfolio.service.ExperienciaService;
+
+import org.example.portfolio_paula.model.Experiencia;
+import org.example.portfolio_paula.service.ExperienciaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

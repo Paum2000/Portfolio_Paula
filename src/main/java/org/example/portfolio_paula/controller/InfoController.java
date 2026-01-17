@@ -1,7 +1,8 @@
 package org.example.portfolio_paula.controller;
 
-import org.example.portfolio.model.Info;
-import org.example.portfolio.service.InfoService;
+
+import org.example.portfolio_paula.model.Info;
+import org.example.portfolio_paula.service.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

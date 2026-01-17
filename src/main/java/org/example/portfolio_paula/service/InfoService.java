@@ -1,8 +1,9 @@
 package org.example.portfolio_paula.service;
 
 
-import org.example.portfolio.model.Info;
-import org.example.portfolio.repository.InfoRepository;
+
+import org.example.portfolio_paula.model.Info;
+import org.example.portfolio_paula.repository.InfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

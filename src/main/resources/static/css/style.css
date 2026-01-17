@@ -1,64 +1,74 @@
-/* Estilos para cumplir con el diseño profesional */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    scroll-behavior: smooth;
+:root {
+    --primary-color: #00d2ff; /* Azul neón de tu foto */
+    --dark-bg: #0a192f;       /* Azul marino profundo */
+    --accent-color: #3a7bd5;
+    --text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
-.profile-img {
+/* Header Estilo LinkedIn */
+#perfil-header {
+    background-color: var(--dark-bg);
+    margin-bottom: 80px; /* Espacio para que la foto que sobresale no tape el texto */
+}
+
+.banner-container {
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.banner-img {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6); /* Oscurece un poco el código para que resalte el texto */
+}
+
+.perfil-contenido {
+    position: absolute;
+    bottom: -60px; /* Hace que la foto sobresalga hacia abajo del banner */
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.profile-img-nuevo {
     width: 200px;
     height: 200px;
+    border: 6px solid var(--dark-bg); /* El borde oscuro hace que se integre con el fondo */
     object-fit: cover;
-    border: 5px solid #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    background-color: var(--dark-bg);
 }
 
-.social-links a {
-    font-size: 1.5rem;
-    margin: 0 10px;
-    transition: transform 0.3s;
+.info-texto h1 {
+    text-shadow: var(--text-shadow);
+    font-size: 2.5rem;
 }
 
-.social-links a:hover {
-    transform: scale(1.2);
+.text-info-custom {
+    color: var(--primary-color);
+    text-shadow: var(--text-shadow);
+}
+
+/* Ajustes de armonía para el resto de la página */
+.navbar {
+    background: rgba(10, 25, 47, 0.95) !important;
 }
 
 .card {
-    border: none;
-    transition: transform 0.3s;
+    border-left: 4px solid var(--primary-color); /* Detalle neón en los laterales de las tarjetas */
 }
 
-.card:hover {
-    transform: translateY(-5px);
+.badge {
+    background-color: rgba(0, 210, 255, 0.1) !important;
+    color: var(--primary-color) !important;
+    border: 1px solid var(--primary-color);
 }
 
-/* Ajustes para fotos de proyectos */
-.card-img-top {
-    height: 200px;
-    object-fit: cover;
-}
-
-section {
-    padding: 60px 0;
-}
-
-/* Sombras suaves para las tarjetas */
-.card {
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-/* Efecto hover en las filas de la tabla */
-.table-hover tbody tr:hover {
-    background-color: rgba(13, 110, 253, 0.05);
-}
-
-/* Botones redondeados */
-.btn {
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .banner-container { height: 200px; }
+    .profile-img-nuevo { width: 150px; height: 150px; }
+    .perfil-contenido { bottom: -75px; }
+    #perfil-header { margin-bottom: 100px; }
 }

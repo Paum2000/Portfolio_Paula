@@ -1,7 +1,8 @@
 package org.example.portfolio_paula.controller;
 
-import org.example.portfolio.model.Lenguaje;
-import org.example.portfolio.service.LenguajeService;
+
+import org.example.portfolio_paula.model.Lenguaje;
+import org.example.portfolio_paula.service.LenguajeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
