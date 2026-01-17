@@ -1,0 +1,64 @@
+/* Estilos para cumplir con el diseño profesional */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: transform 0.3s;
+}
+
+.social-links a:hover {
+    transform: scale(1.2);
+}
+
+.card {
+    border: none;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Ajustes para fotos de proyectos */
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+section {
+    padding: 60px 0;
+}
+
+/* Sombras suaves para las tarjetas */
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Efecto hover en las filas de la tabla */
+.table-hover tbody tr:hover {
+    background-color: rgba(13, 110, 253, 0.05);
+}
+
+/* Botones redondeados */
+.btn {
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
