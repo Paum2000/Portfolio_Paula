@@ -14,7 +14,7 @@
   <div class="container">
     <a class="navbar-brand" href="#" th:text="${info.nombre}">Nombre Alumno</a>
     <div class="navbar-nav ms-auto">
-      <a class="nav-link" href="#sobre-mi">Sobre mí</a>
+      <a class="nav-link" href="#perfil-header">Sobre mí</a>
       <a class="nav-link" href="#experiencia">Experiencia</a>
       <a class="nav-link" href="#estudios">Estudios</a>
       <a class="nav-link" href="#proyectos">Proyectos</a>
@@ -44,12 +44,29 @@
 
 <section id="sobre-mi" class="py-5">
   <div class="container">
-    <div class="social-links text-center">
-      <a th:href="${info.linkedin}" target="_blank" class="btn btn-outline-primary shadow-sm"><i class="fab fa-linkedin me-2"></i>LinkedIn</a>
-      <a th:href="${info.github}" target="_blank" class="btn btn-outline-dark shadow-sm"><i class="fab fa-github me-2"></i>GitHub</a>
-      <span class="ms-3 d-block d-md-inline mt-3 mt-md-0">
-                <i class="fas fa-envelope text-primary"></i> <span th:text="${info.email}">paum2000@gmail.com</span>
-            </span>
+    <div class="text-center">
+
+      <div class="contacto-info mb-4">
+        <span class="mx-3 d-block d-md-inline mb-2 mb-md-0">
+          <i class="fas fa-envelope text-primary me-2"></i>
+          <span th:text="${info.email}">paum2000@gmail.com</span>
+        </span>
+
+        <span th:if="${info.telefono != null and !info.telefono.empty}" class="mx-3 d-block d-md-inline">
+          <i class="fas fa-phone text-primary me-2"></i>
+          <span th:text="${info.telefono}">+34 600 000 000</span>
+        </span>
+      </div>
+
+      <div class="social-buttons">
+        <a th:href="${info.linkedin}" target="_blank" class="btn btn-outline-primary shadow-sm mx-2 px-4">
+          <i class="fab fa-linkedin me-2"></i>LinkedIn
+        </a>
+        <a th:href="${info.github}" target="_blank" class="btn btn-outline-dark shadow-sm mx-2 px-4">
+          <i class="fab fa-github me-2"></i>GitHub
+        </a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -109,7 +126,9 @@
             <div class="mb-2">
               <span th:each="len : ${proy.lenguajes}" class="badge bg-secondary me-1" th:text="${len.nombre}">Java</span>
             </div>
-            <a th:href="${proy.github_url}" target="_blank" class="btn btn-sm btn-dark">Ver en GitHub</a>
+            <a th:href="${proy.github_url}" target="_blank" class="btn btn-dark w-100 mt-3">
+              <i class="fab fa-github"></i> Ver Proyecto
+            </a>
           </div>
         </div>
       </div>

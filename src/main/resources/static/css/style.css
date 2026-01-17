@@ -10,44 +10,70 @@
     background-color: var(--dark-bg);
     margin-bottom: 80px; /* Espacio para que la foto que sobresale no tape el texto */
 }
+#sobre-mi {
+    padding-top: 10px !important; /* Reducimos el espacio interno superior */
+    padding-bottom: 40px;
+    background-color: white; /* Asegura que el fondo sea limpio */
+}
 
+/* Altura del Banner aumentada */
 .banner-container {
-    height: 300px;
+    height: 350px;
     overflow: hidden;
     position: relative;
 }
 
 .banner-img {
     height: 100%;
+    width: 100%;
     object-fit: cover;
-    filter: brightness(0.6); /* Oscurece un poco el código para que resalte el texto */
+    /* Oscurecemos la imagen para que las letras blancas resalten */
+    filter: brightness(0.5);
 }
 
-.perfil-contenido {
+/* Degradado para mejorar la legibilidad del texto */
+.banner-container::after {
+    content: "";
     position: absolute;
-    bottom: -60px; /* Hace que la foto sobresalga hacia abajo del banner */
+    bottom: 0;
     left: 0;
-    right: 0;
+    width: 100%;
+    height: 50%; /* El degradado cubre la mitad inferior */
+    background: linear-gradient(to top, rgba(10, 25, 47, 0.9), transparent);
+}
+
+/* Sombra de texto para contraste máximo */
+.info-texto h1 {
+    font-size: 3rem;
+    color: white !important;
+    /* Sombra más marcada para que se lea perfectamente al estar sobre el banner */
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9);
+}
+.info-texto p {
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    position: relative;
     z-index: 10;
 }
 
+.text-info-custom {
+    color: #00d2ff !important; /* Azul neón */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.perfil-contenido {
+    margin-top: -150px; /* Antes era -120px, al subirlo más, la sección siguiente se acerca */
+    position: relative;
+    z-index: 20;
+}
 .profile-img-nuevo {
     width: 200px;
     height: 200px;
-    border: 6px solid var(--dark-bg); /* El borde oscuro hace que se integre con el fondo */
     object-fit: cover;
+    /* El borde del mismo color que el fondo de la siguiente sección
+       o blanco hace que destaque sobre el banner oscuro */
+    border: 6px solid var(--dark-bg);
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     background-color: var(--dark-bg);
-}
-
-.info-texto h1 {
-    text-shadow: var(--text-shadow);
-    font-size: 2.5rem;
-}
-
-.text-info-custom {
-    color: var(--primary-color);
-    text-shadow: var(--text-shadow);
 }
 
 /* Ajustes de armonía para el resto de la página */
@@ -63,6 +89,31 @@
     background-color: rgba(0, 210, 255, 0.1) !important;
     color: var(--primary-color) !important;
     border: 1px solid var(--primary-color);
+}
+
+.contacto-info {
+    margin-top: 15px;
+}
+
+/* Efecto de elevación y brillo para todas las tarjetas */
+.card {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.card:hover {
+    transform: translateY(-8px); /* Eleva la tarjeta */
+    box-shadow: 0 15px 30px rgba(0, 210, 255, 0.2) !important; /* Sombra con el tono de tu banner */
+    border-color: rgba(0, 210, 255, 0.5); /* Resalta el borde */
+}
+
+/* Especial para las imágenes de los proyectos */
+.card-img-top {
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05); /* Zoom suave a la imagen del proyecto */
 }
 
 /* Responsivo para móviles */

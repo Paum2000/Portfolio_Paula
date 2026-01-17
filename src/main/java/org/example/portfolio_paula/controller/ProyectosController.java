@@ -25,7 +25,7 @@ public class ProyectosController {
     @RequestMapping("")
     public String listar(Model model) {
         model.addAttribute("proyectos", proyectoService.listar());
-        return "admin/proyectos-list";
+        return "admin/proyecto-list";
     }
 
     @RequestMapping("/nuevo")

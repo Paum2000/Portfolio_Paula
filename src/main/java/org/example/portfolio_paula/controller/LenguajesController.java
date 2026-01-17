@@ -21,7 +21,7 @@ public class LenguajesController {
     @RequestMapping("")
     public String listar(Model model) {
         model.addAttribute("lenguajes", lenguajeService.listar());
-        return "admin/lenguajes-list";
+        return "admin/lenguaje-list";
     }
 
     @RequestMapping("/nuevo")
@@ -37,7 +37,7 @@ public class LenguajesController {
         return "redirect:/admin/lenguajes";
     }
 
-    @RequestMapping("/editar/{id}") // Añadido para permitir edición
+    @RequestMapping("/editar/{id}")
     public String editar(@PathVariable Long id, Model model) {
         model.addAttribute("lenguaje", lenguajeService.buscar(id));
         return "admin/lenguaje-form";
