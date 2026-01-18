@@ -107,13 +107,40 @@
     border-color: rgba(0, 210, 255, 0.5); /* Resalta el borde */
 }
 
-/* Especial para las imágenes de los proyectos */
-.card-img-top {
-    transition: transform 0.5s ease;
+/* 1. Definimos el tamaño de la CAJA */
+.marco-foto {
+    width: 100%;          /* Ocupa el ancho de la tarjeta */
+    height: 150px;        /* ALTO FIJO determinado por ti */
+    display: flex;        /* Para centrar la foto dentro */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;     /* Si la foto es más grande, la caja la corta */
+    margin-bottom: 15px;
 }
 
-.card:hover .card-img-top {
-    transform: scale(1.05); /* Zoom suave a la imagen del proyecto */
+/* 2. La FOTO dentro de la caja */
+.imagen-proyecto {
+    max-height: 100%;     /* No puede ser más alta que la caja */
+    max-width: 100%;      /* No puede ser más ancha que la caja */
+    object-fit: contain;  /* Mantiene la forma original del logo sin estirarlo */
+}
+
+/* 3. Aseguramos el anclaje inferior del botón */
+.card-body {
+    height: 100%;
+}
+
+.mt-auto {
+    margin-top: auto !important;
+}
+
+/* El texto se queda a la izquierda */
+.card-title, .card-text {
+    text-align: left;
+}
+
+.mt-auto {
+    margin-top: auto !important; /* Empuja el botón al fondo */
 }
 
 /* Responsivo para móviles */
