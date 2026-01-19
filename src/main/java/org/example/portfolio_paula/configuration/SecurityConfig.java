@@ -41,7 +41,7 @@ public class SecurityConfig {
                 .formLogin(form -> form
                                 .loginPage("/login") // Página de login personalizada
                                 .loginProcessingUrl("/login") // URL que procesa el login
-                                .defaultSuccessUrl("/admin", true) // Redirige aquí tras login exitoso
+                                .defaultSuccessUrl("/admin/dashboard", true) // Redirige aquí tras login exitoso
                                 .failureUrl("/login?error=true") // Redirige aquí si falla
                                 .permitAll()
                 )

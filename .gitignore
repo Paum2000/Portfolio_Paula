@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Excluir el archivo de configuración de Spring
+src/main/resources/application.properties

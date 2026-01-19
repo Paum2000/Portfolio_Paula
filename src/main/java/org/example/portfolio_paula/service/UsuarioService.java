@@ -9,42 +9,57 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 
+
 @Service
 public class UsuarioService {
+
     @Autowired
     private UsuarioRepository usuarioRepository;
-    private final PasswordEncoder passwordEncoder;
-    public UsuarioService() {
-        passwordEncoder = new BCryptPasswordEncoder();
-    }
-    // Registrar un nuevo usuario
-    public Usuario registrarUsuario(String username, String password,
-                                    String email) {
-        // Verificar si el usuario ya existe
+
+    // IMPORTANTE: Dejamos que Spring inyecte el Bean que definiremos en SecurityConfig
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    /**
+     * Registra un nuevo usuario en el sistema encriptando su contraseña.
+     */
+    public Usuario registrarUsuario(String username, String password, String email) {
+        // 1. Validaciones de existencia
         if (usuarioRepository.existsByUsername(username)) {
-            throw new RuntimeException("El nombre de usuario ya existe");
+            throw new RuntimeException("El nombre de usuario '" + username + "' ya existe.");
         }
         if (usuarioRepository.existsByEmail(email)) {
-            throw new RuntimeException("El email ya está registrado");
+            throw new RuntimeException("El email '" + email + "' ya está registrado.");
         }
-        // Crear el usuario
+
+        // 2. Creación y mapeo de datos
         Usuario usuario = new Usuario();
         usuario.setUsername(username);
-        usuario.setPassword(passwordEncoder.encode(password)); //Encriptar contraseña
+
+        // Encriptar la contraseña usando el BCrypt de la configuración global
+        usuario.setPassword(passwordEncoder.encode(password));
+
         usuario.setEmail(email);
-        usuario.setRole("ROLE_USER");
+
+        // IMPORTANTE: Para que puedas entrar al panel /admin, el rol debe ser ROLE_ADMIN
+        usuario.setRole("ROLE_ADMIN");
+
         usuario.setEnabled(true);
+
+        // 3. Persistencia
         return usuarioRepository.save(usuario);
     }
-    // Buscar usuario por username
+
+    // --- Métodos de búsqueda y utilidad ---
+
     public Optional<Usuario> findByUsername(String username) {
         return usuarioRepository.findByUsername(username);
     }
-    // Verificar si existe el username
+
     public Boolean existsByUsername(String username) {
         return usuarioRepository.existsByUsername(username);
     }
-    // Verificar si existe el email
+
     public Boolean existsByEmail(String email) {
         return usuarioRepository.existsByEmail(email);
     }
