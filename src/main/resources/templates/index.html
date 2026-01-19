@@ -58,7 +58,7 @@
         </span>
       </div>
 
-      <div class="social-buttons">
+      <div class="social-buttons mb-5">
         <a th:href="${info.linkedin}" target="_blank" class="btn btn-outline-primary shadow-sm mx-2 px-4">
           <i class="fab fa-linkedin me-2"></i>LinkedIn
         </a>
@@ -66,7 +66,36 @@
           <i class="fab fa-github me-2"></i>GitHub
         </a>
       </div>
-
+      <div class="row justify-content-center">
+        <div class="col-md-6 text-start">
+          <div class="card shadow-sm border-0">
+            <div class="card-body p-4">
+              <h4 class="text-center mb-4">Enviame un mensaje</h4>
+              <form th:action="@{/email/send}" method="post">
+                <div class="mb-3">
+                  <label for="fromEmail" class="form-label fw-bold small">Tu correo electrónico</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-white border-end-0"><i class="fas fa-at text-muted"></i></span>
+                    <input type="email" name="fromEmail" id="fromEmail" class="form-control border-start-0"
+                           placeholder="nombre@ejemplo.com" required>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="subject" class="form-label small fw-bold">Asunto:</label>
+                  <input type="text" name="subject" id="subject" class="form-control" placeholder="¿En qué puedo ayudarte?" required>
+                </div>
+                <div class="mb-3">
+                  <label for="body" class="form-label small fw-bold">Mensaje:</label>
+                  <textarea name="body" id="body" class="form-control" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 shadow-sm">
+                  <i class="fas fa-paper-plane me-2"></i>Enviar Correo
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
