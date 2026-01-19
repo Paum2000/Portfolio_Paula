@@ -11,13 +11,27 @@ public class EmailService {
     public EmailService(final JavaMailSender mailSender) {
         this.mailSender = mailSender;
     }
-    public void enviarCorreo(String destinatario, String asunto, String
-            cuerpo) {
+    public void enviarCorreo(String correoCliente, String asunto, String cuerpo) {
         SimpleMailMessage mensaje = new SimpleMailMessage();
-        mensaje.setTo(destinatario); // Configura el destinatario delcorreo
-        mensaje.setSubject(asunto); // Configura el asunto del correo
-        mensaje.setText(cuerpo); // Configura el contenido del mensaje
-        mensaje.setFrom("email@gmail.com"); // Define quién envía el correo
-        mailSender.send(mensaje); // Envía el correo
+
+        // 1. El destino SIEMPRE eres tú
+        mensaje.setTo("paum2000@gmail.com");
+
+        // 2. El asunto puede indicar que es desde el portfolio
+        mensaje.setSubject("Contacto Portfolio: " + asunto);
+
+        // 3. Construimos el cuerpo para ver los datos del cliente
+        String contenidoPersonalizado = "Has recibido un nuevo mensaje de contacto:\n\n" +
+                "De: " + correoCliente + "\n" +
+                "Mensaje:\n" + cuerpo;
+        mensaje.setText(contenidoPersonalizado);
+
+        // 4. Importante: El 'From' debe ser tu correo configurado en properties
+        mensaje.setFrom("paum2000@gmail.com");
+
+        // 5. Opcional: Si das a "Responder", le responderás al cliente
+        mensaje.setReplyTo(correoCliente);
+
+        mailSender.send(mensaje);
     }
 }

@@ -31,7 +31,7 @@ public class SecurityConfig {
                                 // Rutas públicas (accesibles sin login)
                                 .requestMatchers("/", "/index", "/login").permitAll()
                                 .requestMatchers("/css/**", "/js/**",
-                                        "/images/**").permitAll()
+                                        "/images/**", "/email/send").permitAll()
                                 // Rutas del panel admin (requieren autenticación)
                                 .requestMatchers("/admin/**").hasAnyRole(
                                         "ADMIN")
