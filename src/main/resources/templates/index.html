@@ -15,6 +15,7 @@
     <a class="navbar-brand" href="#" th:text="${info.nombre}">Nombre Alumno</a>
     <div class="navbar-nav ms-auto">
       <a class="nav-link" href="#perfil-header">Sobre mí</a>
+      <a class="nav-link" href="#contactame">Contactame</a>
       <a class="nav-link" href="#experiencia">Experiencia</a>
       <a class="nav-link" href="#estudios">Estudios</a>
       <a class="nav-link" href="#proyectos">Proyectos</a>
@@ -62,11 +63,11 @@
         <a th:href="${info.linkedin}" target="_blank" class="btn btn-outline-primary shadow-sm mx-2 px-4">
           <i class="fab fa-linkedin me-2"></i>LinkedIn
         </a>
-        <a th:href="${info.github}" target="_blank" class="btn btn-outline-dark shadow-sm mx-2 px-4">
+        <a th:href="${info.github}" target="_blank" class="btn btn-outline-dark shadow-sm mx-2 px-4" id="contactame">
           <i class="fab fa-github me-2"></i>GitHub
         </a>
       </div>
-      <div class="row justify-content-center">
+      <div class="row justify-content-center" >
         <div class="col-md-6 text-start">
           <div class="card-body p-4">
             <h4 class="text-center mb-4">Envíame un mensaje</h4>
